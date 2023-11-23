@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+  }
+
+  /* ========== Variables de color ========== */
+  :root {
+    --Color-Azul: rgba(10, 86, 172, 0.863);
+    --Color-Verde: #22b65f;
+    --Color-Blanco: #ffffff;
+    --Fondo-Pantalla: #e7dcdc;
+  }
+
+  /* Estilos generales */
+  body {
+    background-color: var(--Fondo-Pantalla);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+  }
+
+  /* cARDS */
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .card:hover {
+    transform: scale(1.05);
+  }
+
+  .card img {
+    width: 50%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    left: 110px;
+  }
+
+  .card-content {
+    padding: 20px;
+  }
+
+  .card-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+
+  .card-description {
+    color: #666;
+    margin-bottom: 5px;
+  }
+
+  .card-button {
+    display: block;
+    width: 90%;
+    padding: 10px;
+    text-align: center;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .card-button:hover {
+    background-color: #2980b9;
+  }
+
+  /* Estilos para el carrito y la lista de productos */
+  #carrito, .product-list, #pagina-orden {
+  position: absolute;
+  top: 160px; /* Ajusta este valor según tus necesidades */
+  background-color: #f5f5f5;
+  overflow-y: scroll; /* Hace que el contenido sea desplazable verticalmente */
+  padding: 10px;
+  border: 1px solid #ccc; /* Agrega un borde alrededor del carrito y la lista de productos */
+  z-index: 1; /* Asegura que ambos elementos estén por encima del contenido */
+  height: 500px;
+  }
+
+
+  #carrito {
+    left: 0;
+    box-shadow: 3px 0 5px rgba(0, 0, 0, 0.2);
+    width: 25%;
+    height: 100%; /* El carrito ocupa toda la altura disponible */
+  }
+
+  .product-list {
+    right: 0;
+    border-left: none; /* Quita el borde izquierdo de la lista de productos para que se vea continuo */
+    width: 75%;
+    height: 100%; /* La lista de productos ocupa toda la altura disponible */
+  }
+
+ 
+#carrito h3 {
+    color: #333;
+    text-align: center;
+}
+
+#lista-carrito {
+    list-style-type: none;
+    padding: 0;
+}
+
+#lista-carrito li {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#lista-carrito li:last-child {
+    border-bottom: none;
+}
+
+#lista-carrito input[type="number"] {
+    width: 50px;
+    padding: 5px;
+}
+
+#lista-carrito button {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#lista-carrito button:hover {
+    background-color: #c0392b;
+}
+
+#total {
+    font-weight: bold;
+}
+
+input[type="submit"] {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+#orden-button {
+    background-color: #27ae60;
+}
+
+#orden-button:hover {
+    background-color: #219351;
+}
+
+#pagina-orden {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 330px;
+    position: fixed;
+    right: 350px;
+    top: 165px;
+}
+
+#pagina-orden h2,
+#pagina-orden h3 {
+    color: #333;
+    text-align: center;
+}
+
+#pagina-orden ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#pagina-orden li {
+    margin-bottom: 10px;
+}
+
+#pagar-button {
+    background-color: #e67e22;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#pagar-button:hover {
+    background-color: #d35400;
+}
+
+#cerrar-orden-button {
+    background-color: #34495e;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    margin-top: 10px;
+}
+
+#cerrar-orden-button:hover {
+    background-color: #2c3e50;
+}
+
+#pagina-orden p{
+  color: var(--Color-Azul);
+  text-align: center;
+}
+#pagina-orden ul{
+  color: var(--Color-Azul);
+  text-align: center;
+}
+
+
