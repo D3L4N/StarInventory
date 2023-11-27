@@ -1,0 +1,192 @@
+/*========== Reset de estilos ============ */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+/*========== Reset de estilos ============ */
+:root {
+    --Color-Azul: rgba(10, 86, 172, 0.863);
+    --Color-Verde: #22b65f;
+    --Color-Blanco: #ffffff;
+    --Fondo-Pantalla: #e7dcdc;
+  }
+
+/*========== Seleccionar ============ */
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0!important;
+    background: var(--Color-Azul);
+    background-image: none;
+    flex: 1;
+    padding: 0 .5em;
+    color: var(--Color-Verde);
+    cursor: pointer;
+    font-size: 1em;
+    padding-left: 20px;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+/*========== Contenedor ============ */
+.select {
+    position: relative;
+    display: flex;
+    width: 20em;
+    height: 3em;
+    line-height: 3;
+    overflow: hidden;
+    border-radius: .25em;
+    border-radius: 40px;
+    border: 2px solid var(--Color-Blanco);
+    width: 90%;
+    height: 50px;
+    margin: 30px 17px;
+}
+
+/*========== Body ============ */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--Fondo-Pantalla);
+}
+
+/*========== Formulario ============ */
+.Contenedor_login {
+    background: var(--Color-Azul);
+    color: var(--Color-Blanco);
+    width: 420px;
+    border: 3px solid var(--Color-Blanco);
+    border-radius: 40px;
+    margin-top: 180px;
+}
+
+/*========== Titulo de formulario  ============ */
+.Contenedor_login h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/*========== input ============ */
+.Contenedor_login .input_login {
+    position: relative;
+    width: 90%;
+    height: 50px;
+    margin: 30px 17px;
+}
+
+.input_login input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid var(--Color-Blanco);
+    border-radius: 40px;
+    font-size: 16px;
+    color: var(--Color-Blanco);
+    padding: 20px 45px 20px 20px;
+}
+
+.input_login input::placeholder {
+    color: var(--Color-Verde);
+}
+
+.input_login span{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(20%);
+    font-size: 20px;
+}
+
+/*========== Boton ============ */
+.Contenedor_login .btn_login {
+    background: var(--Color-Verde);
+    margin: 30px 17px;
+    width: 90%;
+    height: 45px;
+    border: none;
+    outline: none;
+    border: 2px solid var(--Color-Blanco);
+    border-radius: 40px;
+    box-shadow: 0 0 10px var(--Fondo-Pantalla);
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--Color-Blanco);
+}
+
+/*========== Botones generales ============ */
+.btn {
+    border: 2px solid var(--Color-Blanco);
+    border-radius: 40px;
+    padding: 5px 10px;
+    transition: .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 90%;
+    height: 50px;
+    margin: 30px 17px;
+}
+
+.btn:hover {
+    background-color: var(--Color-Verde);
+    color: var(--Color-Blanco);
+}
+
+/*========== labels ============ */
+label{
+    color: var(--Color-Verde);
+    position: relative;
+    left: 20px;
+}
+
+/*========== file ============ */
+.input_container .btn{
+    border: 2px solid var(--Color-Blanco);
+    border-radius: 40px;
+    padding: 5px 10px;
+    transition: .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 90%;
+    height: 50px;
+    margin: 30px 17px;
+}
+
+/*========== Cancelar ============ */
+.regresar{
+    background-color: var(--Color-Azul);
+    border: var(--Color-Blanco);
+    border-radius: 40px;
+    padding: 8px;
+    position: relative;
+    bottom: 250px;
+    right: 350px;
+  }
+  
+  a{
+    color: var(--Color-Blanco);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+  }
