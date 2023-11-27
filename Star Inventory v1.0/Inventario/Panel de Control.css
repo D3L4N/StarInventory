@@ -1,0 +1,109 @@
+/* =============== General ============== */
+* {
+  font-family: "Ubuntu", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+:root {
+  --blue: #22b65f;
+  --white: rgba(10, 86, 172, 0.863);
+  --gray: #c5c5c5;
+  --black1: #000000;
+  --black2: #ffffff;
+}
+/* todo: =============== menu ================ */
+nav{
+  max-width: 9000px;
+  margin: auto;
+  background-color: rgba(10, 86, 172, 0.863);
+  font-size: 20px;
+  margin-top: 0px;
+}
+.menu-horizontal{
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+.menu-horizontal > li > a {
+  display: block;
+  padding: 15px 20px;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+.menu-horizontal > li:hover{
+  background-color: #22b65f;
+}
+.menu-vertical{
+  position: absolute;
+  display: none;
+  list-style: none;
+  width: 200px;
+  background-color: rgba(10, 86, 172, 0.863);
+}
+.menu-horizontal li:hover .menu-vertical{
+  display: block;
+}
+.menu-vertical li:hover{
+  background-color: #22b65f;
+  color: #ffffff;
+}
+.menu-vertical > li > a{
+  display: block;
+  color: rgba(94, 17, 17, 0.616);
+  padding: 15px 15px 15px 20px;
+}
+/*todo ===================== buscar ===================== */
+.search label input {
+    width: 50%;
+    height: 40px;
+    border-radius: 400px;
+    padding: 5px 200px;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 18px;
+    border: 1px solid var(--black1);
+  }
+/*todo ===================== imagen ===================== */
+.user {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+.user img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height:100%;
+  object-fit: cover;
+}
+/*todo =======================Fichas====================== */
+.cardBox {
+  padding: 50px;
+}
+.cardBox .card {
+  background: var(--white);
+  padding: 30px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.cardBox .card .numbers {
+  font-size: 2.5rem;
+  color: var(--blue);
+}
+.cardBox .card .cardName {
+  color: var(--black2);
+}
+.cardBox .card:hover {
+  background: var(--blue);
+}
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBx {
+  color: var(--white);
+}
