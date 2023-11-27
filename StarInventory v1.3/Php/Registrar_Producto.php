@@ -1,0 +1,85 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (isset($_SESSION['Rol_Usuario']) && $_SESSION['Rol_Usuario']) {
+    include './Php/Conexion.php';
+
+    function agregarToast($tipo, $titulo, $descripcion) {
+        ?>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                agregarToast({
+                    tipo: '<?= $tipo ?>',
+                    titulo: '<?= $titulo ?>',
+                    descripcion: '<?= $descripcion ?>',
+                    autoCierre: true
+                });
+            });
+        </script>
+        <?php
+    }
+
+    $NOMBRE = "";
+    $PRECIO = "";
+    $CATEGORIA = "";
+    $SUBCATEGORIA = "";
+    $STOCK_ACTUAL = "0";
+    $IMAGEN_PRODUCTO = '';
+    $CADUCIDAD = "1400/01/01";
+
+    if (isset($_POST['Enviar'])) {
+        $NOMBRE = $_POST['Nombre'];
+        $PRECIO = $_POST['Precio'];
+        $CATEGORIA = $_POST['Categoria'];
+        $SUBCATEGORIA = $_POST['Subcategoria'];
+        $PROVEEDOR = $_POST['proveedor'];
+
+        if (
+            strlen($NOMBRE) >= 1 &&
+            strlen($PRECIO) >= 1 &&
+            strlen($CATEGORIA) >= 1 &&
+            strlen($SUBCATEGORIA) >= 1
+        ) {
+            $FOTO = $_FILES['foto'];
+            $img_file = $FOTO['name'];
+            $img_type = $FOTO['type'];
+
+            $directorio_destino = "Imagen_Producto";
+            $destino = $directorio_destino . '/' . basename($img_file);
+
+            $allowed_image_types = array("image/jpeg", "image/jpg", "image/png", "image/gif");
+
+            if (in_array($img_type, $allowed_image_types) && move_uploaded_file($FOTO['tmp_name'], $destino)) {
+                $IMAGEN_PRODUCTO = 'Imagen_Producto/' . basename($img_file);
+            } else {
+                $IMAGEN_PRODUCTO = 'Imagen_Producto/Predeterminada.png';
+            }
+
+            $stmt = mysqli_prepare($CONEXION, "INSERT INTO producto (Nombre_Producto, Precio, Categoria, Subcategoria, Imagen_Producto, Proveedor, Stock, Fecha_Caducidad) 
+                                              VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            mysqli_stmt_bind_param($stmt, "ssssssss", $NOMBRE, $PRECIO, $CATEGORIA, $SUBCATEGORIA, $IMAGEN_PRODUCTO, $PROVEEDOR, $STOCK_ACTUAL, $CADUCIDAD);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
+
+            agregarToast('exito', 'Exito', '¡Producto Registrado Exitosamente!');
+        } else {
+            agregarToast('error', 'Error', '¡Llene todos los campos!');
+        }
+    }
+
+    // Realizar las consultas antes de cerrar la conexión
+    $queryCategorias = "SELECT ID_Categoria, Nombre_Categoria FROM Categoria";
+    $resultCategorias = mysqli_query($CONEXION, $queryCategorias);
+
+    $querySubcategorias = "SELECT ID_Subcategoria, Nombre_Subcategoria, ID_Categoria FROM Subcategoria";
+    $resultSubcategorias = mysqli_query($CONEXION, $querySubcategorias);
+
+    // Cerrar la conexión después de realizar todas las consultas
+    mysqli_close($CONEXION);
+} else {
+    header("Location: Index.php");
+    exit;
+}
+?>
